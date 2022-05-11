@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('index');
+});
+Route::get('/about', function () {
+    //return view('welcome');
+    return view('about');
 });
 
 Route::middleware(['guest'])->group(function (){
