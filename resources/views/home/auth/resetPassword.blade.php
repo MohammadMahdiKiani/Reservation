@@ -1,5 +1,6 @@
+@extends('layout.master')
 <x-layout name="auth">
-<body> 
+@section('content')
     @if (session('success'))
                 <div class="alert alert-success">{{session('success')}}</div>
                     
@@ -11,17 +12,17 @@
     @error('message')
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
-    <form action="{{route('resetPassword')}}" method="post" style="display: flex; flex-direction: column;">
+    <form action="{{route('resetPassword')}}" method="post">
         @csrf
 
         <x-input type="password" name="password" autofocus>
             {{ __('label.reset_password') }}
         </x-input>
-        <x-input type="password" name="repassword" autofocus>
+        <x-input type="password" name="repassword">
             {{ __('label.repassword') }}
         </x-input>
 
-        <button type="submit" name="submit">{{ __('button.submit') }}</button>
+        <button class="btn btn-success" type="submit" name="submit">{{ __('button.submit') }}</button>
     </form>
-</body>
+@endsection
 </x-layout>

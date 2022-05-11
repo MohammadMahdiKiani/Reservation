@@ -1,7 +1,8 @@
+@extends('layout.master')
 <x-layout name="auth">
-<body>
-    <p>کد تایید به شماره موبایل شما ارسال شد. لطفا کد را وارد کنید.</p>
-    <form action="{{route('register.verify')}}" method="post" style="display: flex; flex-direction: column;">
+@section('content')
+<div class="alert alert-success">کد تایید برای شما ارسال شد</div>
+    <form action="{{route('register.verify')}}" method="post">
         @csrf
 
         <x-input type="text" name="first_name" autofocus :value="$data['first_name']">
@@ -24,7 +25,7 @@
             {{ __('label.verify_code') }}
         </x-input>
 
-        <button type="submit">{{ __('button.Register') }}</button>
+        <button class="btn btn-success" type="submit">{{ __('button.Register') }}</button>
     </form>
-</body>
+@endsection
 </x-layout>

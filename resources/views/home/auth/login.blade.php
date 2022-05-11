@@ -1,5 +1,6 @@
+@extends('layout.master')
 <x-layout name="auth">
-<body> 
+@section('content')
     @if (session('success'))
                 <div class="alert alert-success">{{session('success')}}</div>
                     
@@ -11,7 +12,7 @@
     @error('message')
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
-    <form action="{{route('login')}}" method="post" style="display: flex; flex-direction: column;">
+    <form action="{{route('login')}}" method="post">
         @csrf
         <x-input type="tel" name="phone_number" autofocus>
             {{ __('label.phone_number') }}
@@ -21,7 +22,9 @@
             {{ __('label.password') }}
         </x-input>
 
-        <button type="submit" name="submit">{{ __('button.login') }}</button>
+        <button class="btn btn-primary" type="submit" name="submit">{{ __('button.login') }}</button>
     </form>
-</body>
+    <a class="btn btn-link" href="{{route('forget')}}">فراموشی رمز عبور</a>
+    <a class="btn btn-link" href="{{route('register')}}">ثبت نام نکردید؟ همین حالا اقدام کنید</a>
+@endsection
 </x-layout>
