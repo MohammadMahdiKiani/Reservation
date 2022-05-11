@@ -34,6 +34,6 @@ class Verify extends Controller
 
         auth()->login($user);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'خوش آمدید');;
     }
 }

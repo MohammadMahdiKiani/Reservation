@@ -34,7 +34,7 @@ class Login extends Controller
             if (password_verify($valid['password'],$user['password'])) {
                 
                 auth()->login($user);
-                return redirect('/')->with('success', 'ثزرط');
+                return redirect('/')->with('success', 'خوش آمدید');
             }
             else{
                 return redirect('login')->with('danger', 'شماره موبایل یا رمز عبور اشتباه است');
