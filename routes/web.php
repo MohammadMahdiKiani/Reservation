@@ -51,6 +51,9 @@ Route::middleware(['guest'])->group(function (){
 });
 Route::get('/logout', [Login::class,'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return ('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/admin-dashboard', function () {
+    return ('admin-dashboard');
+})->middleware('admin')->name('admin.dashboard');
+Route::get('/user-dashboard', function () {
+    return ('user-dashboard');
+})->name('user.dashboard');

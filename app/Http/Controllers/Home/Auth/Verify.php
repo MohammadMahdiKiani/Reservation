@@ -14,7 +14,7 @@ class Verify extends Controller
     {
         $validatedData = $request->validate([
             'first_name'    => 'required|min:3|regex:/^[a-zA-ZÑñ\s]+$/',
-            'last_name'     => 'required|min:5|regex:/^[a-zA-ZÑñ\s]+$/',
+            'last_name'     => 'required|min:3|regex:/^[a-zA-ZÑñ\s]+$/',
             'phone_number'  => 'required|digits:11|unique:users,phone_number',
             'password'      => 'required|min:8',
             'verify_code'   => 'required|digits:6'

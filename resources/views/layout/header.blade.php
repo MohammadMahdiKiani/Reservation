@@ -21,6 +21,7 @@
                 <li class="nav-item"><a class="btn btn-success" href="{{route('register')}}">ثبت نام</a></li>  
                 @else
 
+                <li class="nav-item"><a class="btn btn-link" href="{{route('logout')}}">حساب کاربری</a></li>
                 <li class="nav-item"><a class="btn btn-danger" href="{{route('logout')}}">خروج</a></li>
                 
                 @endif

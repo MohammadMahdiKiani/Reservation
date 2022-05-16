@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('first_name')->after('id')->nullable();
             $table->string('last_name')->after('first_name')->nullable();
             $table->string('phone_number', 11)->after('last_name')->unique();
+            $table->char('role', 1)->default('0')->after('password');
+            $table->char('active', 1)->default('1')->after('password');
             $table->string('email')->nullable()->change();
         });
     }
@@ -30,7 +32,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['first_name', 'last_name', 'phone_number']);
+            $table->dropColumn(['first_name', 'last_name', 'phone_number','role','active']);
             $table->string('name')->after('id');
             $table->string('email')->unique()->change();
         });

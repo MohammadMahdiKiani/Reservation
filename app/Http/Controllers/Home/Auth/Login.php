@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Home\Auth;
-
+session_start();
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -30,11 +30,18 @@ class Login extends Controller
         
         if (!empty($data[0]['phone_number'])){
             $user = $data[0];
+            
             //$valid['password'] = Hash::make($valid['password']); 
             if (password_verify($valid['password'],$user['password'])) {
                 
-                auth()->login($user);
-                return redirect('/')->with('success', 'خوش آمدید');
+                if($user['role']=='0'){
+                    auth()->login($user);
+                return redirect('/user-dashboard')->with('success', "  {$user['first_name']} عزیز، خوش آمدید");
+                }
+                else{
+                    auth()->login($user);
+                    return redirect('/admin-dashboard')->with('success', "  {$user['first_name']} عزیز، خوش آمدید"); 
+                }
             }
             else{
                 return redirect('login')->with('danger', 'شماره موبایل یا رمز عبور اشتباه است');
