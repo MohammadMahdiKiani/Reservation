@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     //return view('welcome');
     return view('index');
-});
+})->name('index');
 Route::get('/about', function () {
     //return view('welcome');
     return view('about');
@@ -55,5 +55,6 @@ Route::get('/admin-dashboard', function () {
     return ('admin-dashboard');
 })->middleware('admin')->name('admin.dashboard');
 Route::get('/user-dashboard', function () {
-    return ('user-dashboard');
+    
+    return view('userdashboard');
 })->name('user.dashboard');

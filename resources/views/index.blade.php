@@ -45,7 +45,7 @@
 @endsection
 
 @section('content')
-    <a>salam idskfndskmf</a>
+    
 @endsection
 
 @section('portfolio')
