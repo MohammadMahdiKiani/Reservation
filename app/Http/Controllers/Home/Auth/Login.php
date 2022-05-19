@@ -36,11 +36,11 @@ class Login extends Controller
                 
                 if($user['role']=='0'){
                     auth()->login($user);
-                return redirect('/user-dashboard')->with('success', "  {$user['first_name']} عزیز، خوش آمدید");
+                return redirect('/user-dashboard');
                 }
                 else{
                     auth()->login($user);
-                    return redirect('/admin-dashboard')->with('success', "  {$user['first_name']} عزیز، خوش آمدید"); 
+                    return redirect('/admin-dashboard');
                 }
             }
             else{

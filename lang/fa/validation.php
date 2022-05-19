@@ -170,6 +170,9 @@ return [
         'last_name' => 'نام خانوادگی',
         'phone_number' => 'شماره موبایل',
         'password' => 'رمز عبور',
+        'repassword' => 'تکرار رمز عبور',
+        'newpassword' => 'رمز عبور جدید',
+        'renewpassword' => 'تکرار رمز عبور جدید',
     ],
 
 ];

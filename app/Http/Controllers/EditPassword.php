@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EditPassword extends Controller
 {
@@ -13,7 +16,7 @@ class EditPassword extends Controller
      */
     public function index()
     {
-        //
+        return view('EditPassword');
     }
 
     /**
@@ -54,9 +57,31 @@ class EditPassword extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'password'  => 'required|min:8',
+            'newpassword'  => 'required|min:8',
+            'renewpassword'  => 'required|min:8'
+        ]);
+        
+        
+         if (password_verify($valid['password'],Auth::user()->password)) {
+             if ($valid['newpassword']==$valid['renewpassword']) {
+
+                 $newPassword = Hash::make($valid['newpassword']);
+                 $user = User::where('phone_number',Auth::user()->phone_number)->update(['password' => $newPassword]);
+
+                 return redirect('user-dashboard')->with('success','رمز عبور با موفقیت تغییر کرد');
+             }
+             else{
+               return redirect('/user-dashboard/edit-password')->with('danger','مقادیر تکرار رمز عبور صحیح نبود');
+             }
+         }
+         else{
+            return redirect('/user-dashboard/edit-password')->with('danger','رمز عبور فعلی صحیح نبود');
+         }
+
     }
 
     /**
