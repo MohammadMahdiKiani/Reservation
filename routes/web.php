@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EditPassword;
+use App\Http\Controllers\EditUser;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\Auth\Register;
 use App\Http\Controllers\Home\Auth\Login;
@@ -62,3 +63,6 @@ Route::get('/user-dashboard', function () {
 
 Route::get('/user-dashboard/edit-password', [EditPassword::class,'index'])->name('editPassword');
 Route::post('/user-dashboard/edit-password', [EditPassword::class, 'edit']);
+
+Route::get('/user-dashboard/edit-user', [EditUser::class,'index'])->name('editUser');
+Route::post('/user-dashboard/edit-user', [EditUser::class, 'edit']);

@@ -9,4 +9,5 @@ return [
     'repassword' => 'تکرار رمز عبور',
     'password' => 'رمز عبور فعلی',
     'renewpassword' => 'تکرار رمز عبور جدید',
+    'email'=> 'ایمیل',
 ];

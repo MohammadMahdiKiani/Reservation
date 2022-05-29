@@ -61,9 +61,10 @@ class EditUser extends Controller
         $valid = $request->validate([
             'first_name'    => 'required|min:3|regex:/^[a-zA-ZÑñ\s]+$/',
             'last_name'     => 'required|min:3|regex:/^[a-zA-ZÑñ\s]+$/',
+            'email'     => 'required',
         ]);
 
-        $user = User::where('phone_number',Auth::user()->phone_number)->update(['first_name' =>$valid['first_name'],'last_name' =>$valid['last_name'] ]);
+        $user = User::where('phone_number',Auth::user()->phone_number)->update(['first_name' =>$valid['first_name'],'last_name' =>$valid['last_name'],'email' =>$valid['email']]);
         return redirect('user-dashboard')->with('success','اطلاعات با موفقیت تغییر کرد');
     }
 

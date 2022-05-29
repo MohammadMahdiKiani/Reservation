@@ -1,16 +1,16 @@
 @extends('layout.UserDashboardMaster');
-@section('content')
 @if (session('success'))
                 <div class="alert alert-success">{{session('success')}}</div>
                     
-    @endif
-    @if (session('danger'))
+ @endif
+@if (session('danger'))
     <div class="alert alert-danger">{{session('danger')}}</div>
                     
     @endif
-    @error('message')
+@error('message')
     <div class="alert alert-danger">{{$message}}</div>
-    @enderror
+ @enderror
+@section('content')
     <h2>صفحه تغییر پسورد</h2>
 
     <form action="{{route('editPassword')}}" method="post">

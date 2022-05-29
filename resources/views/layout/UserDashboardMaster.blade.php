@@ -43,7 +43,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">کاربری</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="{{route('editUser')}}">
                             
                             تغییر اطلاعات کاربری
                         </a>

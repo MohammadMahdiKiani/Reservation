@@ -26,6 +26,10 @@
         <x-input class="form-control-plaintext" value="{{Auth::user()->phone_number}}" placeholder="شماره موبایل باید 11 رقم باشد" type="tel" name="phone_number" readonly>
             {{ __('label.phone_number') }}
         </x-input>
+
+        <x-input class="form-control-plaintext" value="{{Auth::user()->email}}"  type="email" name="email">
+            {{ __('label.email') }}
+        </x-input>
         
         <button class="btn btn-success" type="submit" name="submit">{{ __('button.submit') }}</button>
     </form>
