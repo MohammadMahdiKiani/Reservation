@@ -15,7 +15,7 @@ class EditUser extends Controller
      */
     public function index()
     {
-        return view('EditUser');
+        return view('UserEditUser');
     }
 
     /**

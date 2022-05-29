@@ -16,7 +16,7 @@ class EditPassword extends Controller
      */
     public function index()
     {
-        return view('EditPassword');
+        return view('UserEditPassword');
     }
 
     /**
