@@ -11699,3 +11699,9 @@
     font-size: 0.75rem;
     border-radius: 0.25rem !important;
   }
+  th{
+    text-align: center !important;
+  }
+  td{
+    text-align: center !important;
+  }

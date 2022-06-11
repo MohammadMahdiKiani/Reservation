@@ -42,6 +42,10 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <a class="nav-link" href="{{route('user.dashboard')}}">
+                            
+                            پیشخوان
+                        </a>
                         <div class="sb-sidenav-menu-heading">کاربری</div>
                         <a class="nav-link" href="{{route('editUser')}}">
                             

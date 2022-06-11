@@ -35,8 +35,14 @@ class Login extends Controller
             if (password_verify($valid['password'],$user['password'])) {
                 
                 if($user['role']=='0'){
-                    auth()->login($user);
-                return redirect('/user-dashboard');
+                    //if ($user['active']=='1') {
+                        auth()->login($user);
+                        return redirect('/user-dashboard');
+                   // }
+                    //else{
+                        //return redirect('login');
+                   // }
+                
                 }
                 else{
                     auth()->login($user);

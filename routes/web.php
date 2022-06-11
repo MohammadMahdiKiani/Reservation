@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\EditPassword;
-use App\Http\Controllers\EditUser;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Front\EditUser;
+use App\Http\Controllers\Front\EditPassword;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\Auth\Register;
 use App\Http\Controllers\Home\Auth\Login;
@@ -55,10 +55,18 @@ Route::middleware(['guest'])->group(function (){
 Route::get('/logout', [Login::class,'logout'])->name('logout');
 
 Route::get('/admin-dashboard', [AdminController::class,'index'])->middleware('admin')->name('admin.dashboard');
+Route::get('/admin-dashboard/users', [AdminController::class,'AllUsers'])->middleware('admin')->name('admin.allusers');
+Route::get('/admin-dashboard/users/inactive/{id}', [AdminController::class,'InActive'])->middleware('admin')->name('admin.inactive');
+Route::get('/admin-dashboard/users/active/{id}', [AdminController::class,'active'])->middleware('admin')->name('admin.active');
+Route::get('/admin-dashboard/edit-user', [AdminController::class,'IndexEditUser'])->name('admin.editUser');
+Route::post('/admin-dashboard/edit-user', [AdminController::class, 'EditUser']);
+Route::get('/admin-dashboard/edit-password', [AdminController::class,'IndexEditPassword'])->name('admin.editPassword');
+Route::post('/admin-dashboard/edit-password', [AdminController::class, 'EditPassword']);
+
 Route::get('/user-dashboard', function () {
     
     return view('userdashboard');
-})->name('user.dashboard');
+})->middleware('UserActive')->name('user.dashboard');
 
 Route::get('/user-dashboard/edit-password', [EditPassword::class,'index'])->name('editPassword');
 Route::post('/user-dashboard/edit-password', [EditPassword::class, 'edit']);

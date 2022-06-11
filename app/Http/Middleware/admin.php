@@ -26,12 +26,12 @@ class admin
                     
                 }
                 else{
-                    return redirect('/');
+                    return abort(404);
                 }
             
         }
         else{
-            return redirect('/');
+            return abort(404);
         }
         
     }

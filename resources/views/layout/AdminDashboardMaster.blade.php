@@ -42,8 +42,12 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <a class="nav-link" href="{{route('admin.dashboard')}}">
+                            
+                            پیشخوان
+                        </a>
                         <div class="sb-sidenav-menu-heading">مدیریت</div>
-                        <a class="nav-link" href="{{route('editUser')}}">
+                        <a class="nav-link" href="{{route('admin.allusers')}}">
                             
                             مدیریت کاربران
                         </a>
@@ -56,11 +60,11 @@
                             رزرو ها
                         </a>
                         <div class="sb-sidenav-menu-heading">کاربری</div>
-                        <a class="nav-link" href="{{route('editUser')}}">
+                        <a class="nav-link" href="{{route('admin.editUser')}}">
                             
                             تغییر اطلاعات کاربری
                         </a>
-                        <a class="nav-link" href="{{route('editPassword')}}">
+                        <a class="nav-link" href="{{route('admin.editPassword')}}">
                             
                             تغییر رمز عبور
                         </a>

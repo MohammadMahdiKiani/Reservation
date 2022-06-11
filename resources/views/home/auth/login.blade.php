@@ -9,6 +9,12 @@
     <div class="alert alert-danger">{{session('danger')}}</div>
                     
     @endif
+    
+    @if (session('primary'))
+    <div class="alert alert-primary">{{session('primary')}}</div>
+                    
+    @endif
+
     @error('message')
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
