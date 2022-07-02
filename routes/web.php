@@ -58,10 +58,20 @@ Route::get('/admin-dashboard', [AdminController::class,'index'])->middleware('ad
 Route::get('/admin-dashboard/users', [AdminController::class,'AllUsers'])->middleware('admin')->name('admin.allusers');
 Route::get('/admin-dashboard/users/inactive/{id}', [AdminController::class,'InActive'])->middleware('admin')->name('admin.inactive');
 Route::get('/admin-dashboard/users/active/{id}', [AdminController::class,'active'])->middleware('admin')->name('admin.active');
-Route::get('/admin-dashboard/edit-user', [AdminController::class,'IndexEditUser'])->name('admin.editUser');
+Route::get('/admin-dashboard/edit-user', [AdminController::class,'IndexEditUser'])->middleware('admin')->name('admin.editUser');
 Route::post('/admin-dashboard/edit-user', [AdminController::class, 'EditUser']);
-Route::get('/admin-dashboard/edit-password', [AdminController::class,'IndexEditPassword'])->name('admin.editPassword');
+Route::get('/admin-dashboard/edit-password', [AdminController::class,'IndexEditPassword'])->middleware('admin')->name('admin.editPassword');
 Route::post('/admin-dashboard/edit-password', [AdminController::class, 'EditPassword']);
+Route::get('/admin-dashboard/gyms', [AdminController::class,'ShowGyms'])->middleware('admin')->name('admin.indexgyms');
+Route::get('/admin-dashboard/gyms/create', [AdminController::class,'IndexAddGym'])->middleware('admin')->name('admin.indexaddgym');
+Route::post('/admin-dashboard/gyms/create', [AdminController::class,'AddGym'])->middleware('admin')->name('admin.addgym');
+
+Route::get('/admin-dashboard/gyms/edit/{id}', [AdminController::class,'IndexEditGym'])->middleware('admin')->name('admin.indexeditgym');
+Route::put('/admin-dashboard/gyms/edit/update/{id}', [AdminController::class,'EditGym'])->name('admin.editgym');
+Route::get('/admin-dashboard/gyms/delete/{id}', [AdminController::class,'IndexDestroyGym'])->middleware('admin')->name('admin.indexdestroygym');
+Route::get('/admin-dashboard/gyms/image-delete/{id}', [AdminController::class,'ImageDelete'])->name('admin.imagedelete');
+
+//Route::post('/admin-dashboard/gyms', [AdminController::class, 'EditPassword']);
 
 Route::get('/user-dashboard', function () {
     
