@@ -1,4 +1,4 @@
-@extends('layout.AdminDashboardMaster');
+@extends('layout.AdminDashboardMaster')
 @if (session('success'))
                 <div class="alert alert-success">{{session('success')}}</div>
                     

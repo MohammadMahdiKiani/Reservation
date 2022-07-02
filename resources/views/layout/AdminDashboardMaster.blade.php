@@ -51,11 +51,11 @@
                             
                             مدیریت کاربران
                         </a>
-                        <a class="nav-link" href="{{route('editPassword')}}">
+                        <a class="nav-link" href="{{route('admin.indexgyms')}}">
                             
                             اطلاعات سالن های ورزشی
                         </a>
-                        <a class="nav-link" href="{{route('editPassword')}}">
+                        <a class="nav-link" href="#">
                             
                             رزرو ها
                         </a>
