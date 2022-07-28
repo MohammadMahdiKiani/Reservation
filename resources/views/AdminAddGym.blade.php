@@ -56,6 +56,9 @@
         <input class="myfrm form-control" style="margin: 2%" type="file" name="image1">
         <input class="myfrm form-control" style="margin: 2%" type="file" name="image2">
         <input class="myfrm form-control" style="margin: 2%" type="file" name="image3">
+        <x-input type="text" name="price" placeholder="قیمت به تومان وارد شود">
+            {{ __('label.price') }}
+        </x-input>
         <button style="margin: 25%" class="btn btn-success" type="submit" name="submit">{{ __('button.submit') }}</button>
     </form>
 @endsection

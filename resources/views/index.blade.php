@@ -9,10 +9,11 @@
 
 @section('services')
 <section class="page-section" id="services">
+    <img src="{{asset('assets/img/ilis-3.png')}}" width="25%" height="25%" alt="">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">فقط در اسپورت رزرو</h2>
+            <h3 class="section-subheading text-muted"></h3>
         </div>
         <div class="row text-center">
             <div class="col-md-4">
@@ -20,36 +21,39 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">رزرو سالن در 24 ساعت شبانه روز</h4>
+                <p class="text-muted">در هر ساعت از شبانه روز می تونید بدون نیاز به حضور در محل و صرفا فقط با انتخاب سالن موردنظر و پرداخت الکترونیکی رزرو را به راحتی انجام بدید.</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">مشاهده - مقایسه - رزرو</h4>
+                <p class="text-muted">ابتدا سالن ها را بر اساس امکاناتشون مقایسه کنید و بعد اقدام به رزرو نمایید.</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">امنیت در پرداخت و اطلاعات</h4>
+                <p class="text-muted">رزرو سالن با پرداخت امن انجام می شود. همچنین اطلاعات شما محفوظ است.</p>
             </div>
         </div>
     </div>
+    
 </section>
 @endsection
 
 @section('content')
-    
+<a href="{{route('user.gyms')}}"><img style="display: block;
+margin-left: auto;
+margin-right: auto;" height="70%" width="70%" src="{{asset('assets/img/480-1615133922.jpg')}}" alt=""></a>
 @endsection
 
 @section('portfolio')
-<section class="page-section bg-light" id="portfolio">
+{{-- <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Portfolio</h2>
@@ -148,5 +152,5 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 @endsection

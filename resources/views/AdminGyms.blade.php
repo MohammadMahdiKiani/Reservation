@@ -19,7 +19,7 @@
     <table id="datatablesSimple" class="dataTable-table">
         
     <thead>
-        <tr><th style="width: 19.5777%;">#</th><th style="width: 19.5777%;">نام سالن</th><th style="width: 28.9827%;">مناسب</th><th style="width: 9.21305%;">آدرس</th><th style="width: 15.1631%;">شماره تلفن</th><th style="width: 11.4203%;"> فوتبال</th><th style="width: 11.4203%;"> والیبال</th><th style="width: 11.4203%;"> بسکتبال</th><th style="width: 11.4203%;"> هندبال</th><th style="width: 11.4203%;">رختکن</th><th style="width: 11.4203%;">آبخوری</th><th style="width: 11.4203%;">حمام</th></tr>
+        <tr><th style="width: 19.5777%;">#</th><th style="width: 19.5777%;">نام سالن</th><th style="width: 28.9827%;">مناسب</th><th style="width: 9.21305%;">آدرس</th><th style="width: 15.1631%;">شماره تلفن</th><th style="width: 11.4203%;"> فوتبال</th><th style="width: 11.4203%;"> والیبال</th><th style="width: 11.4203%;"> بسکتبال</th><th style="width: 11.4203%;"> هندبال</th><th style="width: 11.4203%;">رختکن</th><th style="width: 11.4203%;">آبخوری</th><th style="width: 11.4203%;">حمام</th><th style="width: 11.4203%;">قیمت</th></tr>
     </thead>
     
         <tbody>
@@ -106,6 +106,9 @@
                         @if ($gym->bathroom==1)
                             دارد
                         @endif
+                    </td>
+                    <td>
+                        {{number_format($gym->price)}}
                     </td>
                     <td>
                        <a class="btn btn-link" href="{{route('admin.indexeditgym',$gym)}}">ویرایش</a>
