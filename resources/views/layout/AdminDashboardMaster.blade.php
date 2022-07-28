@@ -55,7 +55,7 @@
                             
                             اطلاعات سالن های ورزشی
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('admin.showreserved')}}">
                             
                             رزرو ها
                         </a>

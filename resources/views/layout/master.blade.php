@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <title></title>
+        <title>Reservation</title>
         @include('layout.head')
     </head>
     <body class="text-right" id="page-top">
@@ -10,6 +10,8 @@
         
         @include('layout.header')
         @yield('success')
+        @yield('primary')
+        @yield('danger')
         <!-- Services-->
         @yield('services')
         <!-- content -->
