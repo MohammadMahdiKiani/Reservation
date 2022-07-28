@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Gym;
 use App\Models\Gymsimage;
+use App\Models\Reserved;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Container\Container;
@@ -128,6 +129,7 @@ class AdminController extends Container
             'locker_room'=>'',
             'drinking_water'=>'',
             'bathroom'=>'',
+            'price'=>'required|numeric',
             'image1'=>'mimes:jpg,png,jpeg',
             'image2'=>'mimes:jpg,png,jpeg|max:5048',
             'image3'=>'mimes:jpg,png,jpeg|max:5048'
@@ -197,7 +199,11 @@ class AdminController extends Container
             'handball'=>$valid['handball'],
             'locker_room'=>$valid['locker_room'],
             'drinking_water'=>$valid['drinking_water'],
-            'bathroom'=>$valid['bathroom']
+            'bathroom'=>$valid['bathroom'],
+            'src'=>'null',
+            'price'=>$valid['price'],
+            
+            
         ]);
         if ($gym==true) {
             
@@ -209,6 +215,11 @@ class AdminController extends Container
                     'gyms_id'=>$gym->id,
                     'src'=>$image1  
                 ]);
+                
+                $g = Gym::find($gym->id);
+                $g->src = $image1;
+                $g->save();
+                
             }
             if (isset($image2) && !empty($image2)) {
                 $save = $request->image2->move(public_path('images'),$image2);
@@ -242,8 +253,6 @@ class AdminController extends Container
         $gymimage = Gymsimage::where('gyms_id',$id)->get();
         $gymimage->toArray();
         
-        
-        //dd($destination);
         $valid = $request->validate([
             'name'    => 'required',
             'address'     => 'required|min:10',
@@ -257,6 +266,7 @@ class AdminController extends Container
             'locker_room'=>'',
             'drinking_water'=>'',
             'bathroom'=>'',
+            'price'=>'required|numeric',
             'image1'=>'mimes:jpg,png,jpeg',
             'image2'=>'mimes:jpg,png,jpeg|max:5048',
             'image3'=>'mimes:jpg,png,jpeg|max:5048'
@@ -326,14 +336,11 @@ class AdminController extends Container
         $gym->locker_room = $valid['locker_room'];
         $gym->drinking_water = $valid['drinking_water'];
         $gym->bathroom = $valid['bathroom'];
+        $gym->price = $valid['price'];
+        $gym->src = 'null';
 
         $gym->save();
-        // if ($gym==true) {
-        //     return redirect('/admin-dashboard/gyms')->with('success','اطلاعات با موفقيت ویرایش شد');
-        // }
-        // else{
-        //     return redirect('/admin-dashboard/gyms')->with('danger','خطا در ویرایش اطلاعات');
-        // }
+        
         if ($gym==true) {
             
             if (isset($image1) && !empty($image1)) {
@@ -344,6 +351,9 @@ class AdminController extends Container
                     }
                     $save = $request->image1->move(public_path('images'),$image1);
                     Gymsimage::where('id', $gymimage[0]['id'])->update(['src' => $image1]);
+                    $g = Gym::find($gym->id);
+                    $g->src = $image1;
+                    $g->save();
                 }
                 else {
                     $save = $request->image1->move(public_path('images'),$image1);
@@ -353,11 +363,7 @@ class AdminController extends Container
                 ]);
                 }
 
-                
-                // $img = Gymsimage::create([
-                //     'gyms_id'=>$gym->id,
-                //     'src'=>$image1  
-                // ]);
+            
             }
             if (isset($image2) && !empty($image2)) {
                 if (!empty($gymimage[1])) {
@@ -399,7 +405,11 @@ class AdminController extends Container
 
     }
 
-
+    public function ShowReserved()
+    {
+        $reserved = Reserved::all();
+        return view('AdminShowReserved',compact('reserved'));
+    }
     public function IndexDestroyGym(Request $request)
     {
         
