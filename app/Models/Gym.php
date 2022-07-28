@@ -10,9 +10,9 @@ class Gym extends Model
     use HasFactory;
     
     protected $fillable = [
-        'name', 'gender', 'phone_number', 'address', 'password' ,'football', 'volleyball', 'basketball','handball', 'locker_room', 'drinking_water', 'bathroom'
+        'name', 'gender', 'phone_number', 'address', 'password' ,'football', 'volleyball', 'basketball','handball', 'locker_room', 'drinking_water', 'bathroom','src','price'
     ];
-
+   
     public function Gymsimages()
     {
         return $this->hasMany(App\Gymsimages::class);
