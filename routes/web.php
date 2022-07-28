@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Front\EditUser;
 use App\Http\Controllers\Front\EditPassword;
+use App\Http\Controllers\Front\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\Auth\Register;
 use App\Http\Controllers\Home\Auth\Login;
@@ -70,6 +71,7 @@ Route::get('/admin-dashboard/gyms/edit/{id}', [AdminController::class,'IndexEdit
 Route::put('/admin-dashboard/gyms/edit/update/{id}', [AdminController::class,'EditGym'])->name('admin.editgym');
 Route::get('/admin-dashboard/gyms/delete/{id}', [AdminController::class,'IndexDestroyGym'])->middleware('admin')->name('admin.indexdestroygym');
 Route::get('/admin-dashboard/gyms/image-delete/{id}', [AdminController::class,'ImageDelete'])->name('admin.imagedelete');
+Route::get('/admin-dashboard/reserved', [AdminController::class,'ShowReserved'])->middleware('admin')->name('admin.showreserved');
 
 //Route::post('/admin-dashboard/gyms', [AdminController::class, 'EditPassword']);
 
@@ -83,3 +85,27 @@ Route::post('/user-dashboard/edit-password', [EditPassword::class, 'edit']);
 
 Route::get('/user-dashboard/edit-user', [EditUser::class,'index'])->name('editUser');
 Route::post('/user-dashboard/edit-user', [EditUser::class, 'edit']);
+
+Route::get('/user-dashboard/show-reserved', [UserController::class,'ShowReserved'])->name('user.showreserved');
+
+
+Route::get('/about', function () {
+    
+    return view('UserAbout');
+})->name('user.about');
+Route::get('/contact', function () {
+    
+    return view('UserContact');
+})->name('user.contact');
+Route::get('/Rules', function () {
+    
+    return view('UserRules');
+})->name('user.rules');
+Route::get('/gyms', [UserController::class, 'ShowGyms'])->name('user.gyms');
+Route::get('/gyms/{id}', [UserController::class, 'IndexShowGym'])->name('user.gymdetail');
+
+Route::get('/gyms/reserv', [UserController::class,'IndexReserv'])->name('user.indexreserv');
+Route::post('/gyms/reserv', [UserController::class, 'IndexReserv']);
+
+Route::get('/gyms/reserv/submit', [UserController::class,'Reserv'])->name('user.reserv');
+Route::post('/gyms/reserv/submit', [UserController::class, 'Reserv']);
