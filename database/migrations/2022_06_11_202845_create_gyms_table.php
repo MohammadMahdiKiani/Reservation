@@ -26,6 +26,8 @@ return new class extends Migration
             $table->char('locker_room',1);
             $table->char('drinking_water',1);
             $table->char('bathroom',1);
+            $table->string('src');
+            $table->string('price');
             $table->timestamps();
             
         });
